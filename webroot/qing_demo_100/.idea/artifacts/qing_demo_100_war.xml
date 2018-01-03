@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="qing_demo_100:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="tiw.war">
+      <element id="artifact" artifact-name="qing_demo_100:war exploded" />
+    </root>
+  </artifact>
+</component>
