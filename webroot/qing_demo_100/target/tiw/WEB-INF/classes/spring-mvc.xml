@@ -16,6 +16,31 @@
     <!-- 启用aop注解功能 -->
     <aop:aspectj-autoproxy proxy-target-class="true" />
 
+    <bean id="byteArrayHttpMessageConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
+    <bean id="UTF8StringHttpMessageConverter" class="com.qing.core.web.converter.UTF8StringHttpMessageConverter" />
+    <bean id="resourceHttpMessageConverter" class="org.springframework.http.converter.ResourceHttpMessageConverter" />
+    <bean id="sourceHttpMessageConverter" class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+    <bean id="xmlAwareFormHttpMessageConverter" class="org.springframework.http.converter.xml.XmlAwareFormHttpMessageConverter" />
+    <bean id="jaxb2RootElementHttpMessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+    <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>text/html;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <ref bean="mappingJacksonHttpMessageConverter" />
+            <ref bean="byteArrayHttpMessageConverter" />
+            <ref bean="UTF8StringHttpMessageConverter" />
+            <ref bean="resourceHttpMessageConverter" />
+            <ref bean="sourceHttpMessageConverter" />
+            <ref bean="xmlAwareFormHttpMessageConverter" />
+            <ref bean="jaxb2RootElementHttpMessageConverter" />
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
     <!-- 当freemarker无法解析视图时，采用后缀名为.jsp的解析器解析视图 -->
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
@@ -62,5 +87,5 @@
     </bean>
 
     <!-- 扫描所有Controller -->
-    <context:component-scan base-package="com.qing"></context:component-scan>
+    <context:component-scan base-package="com.qing.platform.controller"></context:component-scan>
 </beans>

@@ -9,6 +9,8 @@
         <param-value>
             <!-- 主配置文件 -->
             classpath:*spring-mvc.xml,
+            <!-- 数据库配置文件 -->
+            classpath:*spring-hibernate.xml,
         </param-value>
     </context-param>
 
