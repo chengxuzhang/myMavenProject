@@ -1,6 +1,7 @@
 package com.qing.platform.controller;
 
 import com.qing.core.utils.AjaxJsonResponse;
+import com.qing.platform.entity.Document;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +23,8 @@ public class DocumentController {
     @ResponseBody
     @RequestMapping(value="mycode")
     public AjaxJsonResponse mycode(){
+        Document document = new Document();
+        document.setTitle("不知道啊");
         AjaxJsonResponse ajaxJsonResponse = new AjaxJsonResponse();
         try{
             System.out.println("hello");
